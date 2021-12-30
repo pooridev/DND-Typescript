@@ -58,6 +58,8 @@ button:active {
 .projects {
   margin: 1rem;
   border: 1px solid #ff0062;
+  margin: 1rem auto;
+  width: 30rem;
 }
 
 .projects header {
@@ -120,7 +122,8 @@ button:active {
 }
 
 #user-input {
-  margin: 1rem;
+  margin: 1rem auto;
+  width: 30rem;
   padding: 1rem;
   border: 1px solid #ff0062;
   background: #f7f7f7;
