@@ -14,16 +14,21 @@ class Project {
 }
 
 // Application state
-type Listener = (items: Project[]) => void;
+type Listener<T> = (items: T[]) => void;
 
-class ProjectState {
+class State<T> {
+  protected listeners: Listener<T>[] = [];
+  addListener(listener: Listener<T>) {
+    this.listeners.push(listener);
+  }
+}
+
+class ProjectState extends State<Project> {
   private projects: Project[] = [];
   private static instance: ProjectState;
 
-  private listeners: Listener[] = [];
-
-  addListener(listener: Listener) {
-    this.listeners.push(listener);
+  private constructor() {
+    super();
   }
 
   addProject(title: string, description: string, numOfPeople: number) {
